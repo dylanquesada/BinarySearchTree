@@ -61,26 +61,37 @@ namespace BinarySearchTree
             bool found = false;
             while (!found)
             {
+                if (current == null)
+                {
+                    
+                }
                 if (item == current.Data)
                 {
                     Console.WriteLine("Number found: {0} matches {1}.", current.Data, item);
                     found = true;
                 }
 
-                if (item > root.Data)
+                if (item > current.Data)
                 {
                     Console.WriteLine("Right");
+                    if(current.right == null)
+                    {
+                        Console.WriteLine("Sorry, '{0}' was not found.", item);
+                        return;
+                    }
                     current = current.right;
                 }
-                else
+                else if(item < current.Data)
                 {
                     Console.WriteLine("Left");
+                    if (current.left == null)
+                    {
+                        Console.WriteLine("Sorry, '{0}' was not found.", item);
+                        return;
+                    }
                     current = current.left;
                 }
-                if (current == null)
-                {
-                    Console.WriteLine("Sorry, '{0}' was not found.", item);
-                }
+                
             }
         }
     }
