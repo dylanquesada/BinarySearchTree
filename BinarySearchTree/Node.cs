@@ -9,11 +9,11 @@ namespace BinarySearchTree
     class Node
     {
         int data;
-        Node left;
-        Node right;
+        public Node left;
+        public Node right;
 
 
-    public int Data
+        public int Data
         {
             get { return data; }
         }

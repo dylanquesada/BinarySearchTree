@@ -25,27 +25,63 @@ namespace BinarySearchTree
             bool placed = false;
             while (!placed)
             {
-                if (node.Data > current.Data)
+                if(node.Data > current.Data)
                 {
-                    current.right = current;
-                    if (current == null)
+                    if (current.right == null)
                     {
-                        current = node;
+                        current.right = node;
                         placed = true;
+                    }
+                    else
+                    {
+                        current = current.right;
                     }
                 }
                 else
                 {
-                    current.left = current;
-                    if (current == null)
+                    if(current.left == null)
                     {
-                        current = node;
+                        current.left = node;
                         placed = true;
                     }
-                }
-
+                    else
+                    {
+                        current = current.left;
+                    }                    
+                }                
             }
         }
+        public void Search(int item)
+        {
+            if(root == null)
+            {
+                Console.WriteLine("Sorry, Root is 'Null'. Tree is empty. No search results matching '{0}'.", item);
+            }
+            Node current = root;
+            bool found = false;
+            while (!found)
+            {
+                if (item == current.Data)
+                {
+                    Console.WriteLine("Number found: {0} matches {1}.", current.Data, item);
+                    found = true;
+                }
 
+                if (item > root.Data)
+                {
+                    Console.WriteLine("Right");
+                    current = current.right;
+                }
+                else
+                {
+                    Console.WriteLine("Left");
+                    current = current.left;
+                }
+                if (current == null)
+                {
+                    Console.WriteLine("Sorry, '{0}' was not found.", item);
+                }
+            }
+        }
     }
 }
