@@ -12,6 +12,11 @@ namespace BinarySearchTree
         Node left;
         Node right;
 
+
+    public int Data
+        {
+            get { return data; }
+        }
         public Node(int newData)
         {
             data = newData;
